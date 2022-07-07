@@ -1,24 +1,40 @@
-# README
+## Blog_App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is a Ruby on Rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-Things you may want to cover:
+## Built with
+- Ruby
+- Rubocop
+- Stylelint
+- RoR
 
-* Ruby version
+## SetUp
+To get a local copy up and running follow this steps
+- git clone `git@github.com:levy002/blog_app.git`
+- Run `bundle install`
 
-* System dependencies
+# Run the project
+`rails s`
 
-* Configuration
+## Author
 
-* Database creation
+👤 **Ukwishaka Levy**
 
-* Database initialization
+- GitHub: [@levy002](https://github.com/levy002)
+- Twitter: [@levy_ukwishaka](https://twitter.com/levy_ukwishaka)
+- LinkedIn: [levy-ukwishaka](https://linkedin.com/in/levy-ukwishaka)
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Contributions, issues, and feature requests are welcome!
 
-* Deployment instructions
+Feel free to check the [issues page](https://github.com/levy002/blog_app/issues).
 
-* ...
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+
+## Acknowledgments
+
+- Microverse 
