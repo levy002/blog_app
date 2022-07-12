@@ -1,1 +1,32 @@
-<h1>Here is a list of posts for a given user</h1>
+ <div>
+   <% image_tag @user.photo %>
+   <div>
+        <h2><%= @user.name %></h2>
+        <p>
+        <span>Number of posts: </span>
+        <%= @user.posts_counter || 0 %>
+        </p>
+   </div>
+ </div>
+
+ <div>
+ <h4> Bio </h4>
+    <p>
+    <%= @user.bio %>
+    </p>
+</div>
+
+
+<div>
+    <% @user.recent_posts.each do |post| %>
+     <div>
+         <p> Post #<%= post.id %> </p>
+         <p> <%= post.text %> </p>
+     </div>
+    
+    <% end %>
+</div>
+
+<button class="show-posts">
+    <%= link_to "See all posts", user_posts_path(@user) %>
+</button>

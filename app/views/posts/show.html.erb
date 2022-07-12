@@ -1,2 +1,27 @@
-<h1>Posts</h1>
-<p>Shows info for a specific post</p>
+
+<section>
+    <p>Post #<%= @post.id %></p>
+    <p><%= @post.text %></p>
+    <p>
+        <span>
+          Comments: <%= @post.comments_counter || 0 %>,
+          Likes: <%= @post.likes_counter || 0 %>
+        </span>
+    </p>
+  </section>
+
+<div>
+    <% @post.comments.each do |comment| %>
+     <div>
+         <p> 
+           <span>
+             <%= comment.author.name %>:
+            </span> 
+           <span>
+             <%= comment.text %>
+           </span>
+        </p>
+     </div>
+    
+    <% end %>
+</div>

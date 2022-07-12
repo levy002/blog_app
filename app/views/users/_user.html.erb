@@ -1,0 +1,14 @@
+<%= link_to user_path(user), class: 'user' do %>
+
+  <section>
+  <div>
+    <%= image_tag user.photo %>
+  </div>
+    <h2><%= user.name %></h2>
+
+  <p>
+    <span>Number of posts: </span>
+    <%= user.posts_counter || 0 %>
+  </p>   
+  </section> 
+  <% end %>
