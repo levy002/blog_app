@@ -1,1 +1,45 @@
-<h1>Here is a list of posts for a given user</h1>
+ <section class="flex flex-col mx-auto w-11/12 gap-4">
+ <div class= "flex w-full gap-x-4">
+   <div class="w-2/12 border-2 p-4">
+      <img src="<%= @user.photo %>" alt="image">
+   </div>
+  
+   <div class="flex border-2 px-4 py-4 flex-1 justify-between">
+     <h2 class="text-3xl self-center">
+     <%= @user.name %></h2>
+        <p class="self-end text-xs">
+        <span>Number of posts: </span>
+        <%= @user.posts_counter || 0 %>
+        </p>
+        
+   </div>
+ </div>
+
+ <div class="flex flex-col gap-4 border-2 p-3">
+ <h4> Bio </h4>
+    <p>
+    <%= @user.bio %>
+    </p>
+</div>
+
+
+<div class="flex flex-col gap-4">
+    <% @user.recent_posts.each do |post| %>
+    <%= link_to user_post_path(@user, id: post.id), class: 'flex flex-col gap-3 border-2 p-2' do %>
+    <p class="text-sm">Post #<%= post.id %></p>
+    <p><%= post.text %></p>
+    <p class="self-end text-xs">
+        <span>
+          Comments: <%= post.comments_counter || 0 %>,
+          Likes: <%= post.likes_counter || 0 %>
+        </span>
+    </p>
+<% end %>
+    
+    <% end %>
+</div>
+
+<button class="border-2 w-40 self-center">
+    <%= link_to "See all posts", user_posts_path(@user) %>
+</button>
+</section>

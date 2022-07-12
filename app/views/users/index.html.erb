@@ -1,2 +1,8 @@
-<h1>Users</h1>
-<p>Lists all users</p>
+<section class="flex-col mx-auto w-11/12">
+<h1 class="text-center text-4xl">ALL USERS</H1>
+<div class="flex flex-col gap-5 pt-4">
+  <% @users.each do |user| %>
+   <%= render partial: 'user', locals: {user: user} %>
+  <% end %>
+</div>
+</section>
