@@ -1,14 +1,14 @@
-<section>
+<div class="flex flex-col mx-auto w-11/12 gap-4">
+  <section class= "flex gap-x-4">
+    <div class="w-2/12 border-2 p-4">
+     <img src="<%= @user.photo %>" alt="image">
+    </div>
 
-   <div>
-    <img src="<%= @user.photo %>" alt="image">
-  </div>
-
-  <div>
-    <h2>
+  <div class="flex border-2 px-4 py-4 flex-1 justify-between">
+    <h2 class="text-3xl self-center">
       <%= @user.name%>
     </h2>
-    <p>
+    <p class="self-end text-xs">
       Number of posts: <%= @user.posts_counter || 0%>
     </p>
   </div> 
@@ -17,10 +17,11 @@
     <% @user.bio %>
   </div>
 
-</section>
+  </section>
 
-<section>
-  <% @user.posts.each do |post| %>
-    <%= render partial: 'post', locals: {post: post} %>
-  <% end %>
-</section>
+  <section class="flex flex-col gap-4">
+    <% @user.posts.each do |post| %>
+      <%= render partial: 'post', locals: {post: post} %>
+    <% end %>
+  </section>  
+</div>  
