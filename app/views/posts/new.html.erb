@@ -1,0 +1,10 @@
+<section class='flex flex-col w-full items-center gap-6'>
+<h3 class='underline'>Add new post</h3>
+<%= form_with model: @new_post, url: user_posts_url, method: :post, class: 'flex flex-col' do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>      
+      <%= form.label :text, class: 'mt-4' %>
+      <%= form.text_area :text %>      
+      <%= form.submit "Add post", class: 'border-2 mt-4' %>
+<% end %> 
+</section>
