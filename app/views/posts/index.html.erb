@@ -24,7 +24,7 @@
       <%= render partial: 'post', locals: {post: post} %>
     <% end %>
 
-    <%= link_to new_user_posts_path(id: @user.id), class: 'flex w-full justify-center' do %>
+    <%= link_to new_user_post_path(id: @user.id), class: 'flex w-full justify-center' do %>
   <button class="border-2 w-40 self-center cursor">Create post</button>
   <%end%>
   </section>  
