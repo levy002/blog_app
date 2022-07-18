@@ -1,0 +1,9 @@
+<section class='flex flex-col items-center gap-4 w-full'>
+<h3 class='underline'>Add new comment</h3>
+
+<%= form_with model:@comment, url: user_post_comments_url, class: 'flex flex-col' do |form| %>
+    <%= form.label :Comment, class: 'self-start' %>
+    <%= form.text_area :text %>
+    <%= form.submit "Add new comment", class: 'border-2 mt-4' %>
+<% end %>
+</section>

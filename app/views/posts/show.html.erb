@@ -28,4 +28,7 @@
     
     <% end %>
 </div>
+<%= link_to new_user_post_comment_path(post_id: @post.id), class: 'flex items-center justify-center w-full' do %>
+    <button class="border-2 w-40 self-center">Create comment</button>
+    <% end %>
 </div>
