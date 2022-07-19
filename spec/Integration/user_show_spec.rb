@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Testing user show page', type: :feature do
   before(:each) do
     User.destroy_all
-    @first = User.create(name: 'Levy', photo: 'profile.png', bio: 'Developer',posts_counter: 0)
+    @first = User.create(name: 'Levy', photo: 'profile.png', bio: 'Developer', posts_counter: 0)
   end
 
   background { visit user_path(User.first.id) }
@@ -24,5 +24,4 @@ RSpec.feature 'Testing user show page', type: :feature do
     click_link('See all posts')
     expect(current_path).to eq user_posts_path(User.first.id)
   end
-
-end  
+end
