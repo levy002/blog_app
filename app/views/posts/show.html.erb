@@ -1,3 +1,6 @@
+From Me to Everyone 09:13 AM
+HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+From Levy Ukwishaka to Everyone 09:13 AM
 <div class="flex flex-col w-11/12 gap-3">
 <section class="border-2 flex flex-col p-3 text-sm gap-4">
  <div class="flex justify-between">
@@ -5,15 +8,15 @@
     
     <p>
         <span>
-          Comments: <%= @post.comments_counter || 0 %>,
-          Likes: <%= @post.likes_counter || 0 %>
+          Comments: <%= @post.comments.count || 0 %>,
+          Likes: <%= @post.likes.count || 0 %>
         </span>
     </p>
   </div>  
   <p><%= @post.text %></p>
   </section>
 
-<div class="border-2 p-3">
+<div class="border-2 p-3 flex flex-col gap-4">
     <% @post.recent_comments.each do |comment| %>
      <div>
          <p> 
@@ -24,11 +27,16 @@
              <%= comment.text %>
            </span>
         </p>
+        <% if can? :destroy, comment %>
+        <%= button_to 'Delete-Comment', user_post_comment_path(@user.id, @post.id, comment.id), method: :delete %>
+      <% end %>
      </div>
     
     <% end %>
 </div>
 <%= link_to new_user_post_comment_path(post_id: @post.id), class: 'flex items-center justify-center w-full' do %>
-    <button class="border-2 w-40 self-center">Create comment</button>
-    <% end %>
+  <button class="border-2 w-40 self-center">Create comment</button>
+  <% end %>
 </div>
+
+    

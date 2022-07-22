@@ -1,31 +1,33 @@
 <div class="flex flex-col mx-auto w-11/12 gap-4">
-  <section class= "flex gap-x-4">
-    <div class="w-2/12 border-2 p-4">
-     <img src="<%= @user.photo %>" alt="image">
+    <section class= "flex gap-x-4">
+      <div class="w-2/12 border-2 p-4">
+       <img src="<%= @user.photo %>" alt="image">
+      </div>
+  
+    <div class="flex border-2 px-4 py-4 flex-1 justify-between">
+        <%= @user.name%>
+      </h2>
+      <p class="self-end text-xs">
+        Number of posts: <%= @user.posts.count || 0%>
+      </p>
+    </div> 
+  
+    <div>
+      <% @user.bio %>
     </div>
-
-  <div class="flex border-2 px-4 py-4 flex-1 justify-between">
-    <h2 class="text-3xl self-center">
-      <%= @user.name%>
-    </h2>
-    <p class="self-end text-xs">
-      Number of posts: <%= @user.posts_counter || 0%>
-    </p>
-  </div> 
-
-  <div>
-    <% @user.bio %>
-  </div>
-
-  </section>
-
-  <section class="flex flex-col gap-4">
-    <% @posts.each do |post| %>
-      <%= render partial: 'post', locals: {post: post} %>
+  
+    </section>
+  
+    <section class="flex flex-col gap-4">
+      <% @posts.each do |post| %>
+        <%= render partial: 'post', locals: {post: post} %>
+      <% end %>
+     
+     <% if can? :post, @user %>
+      <%= link_to new_user_post_path(id: @user.id), class: 'flex w-full justify-center' do %>
+    <button class="border-2 w-40 self-center cursor">Create post</button>
+    <%end%>
     <% end %>
-
-    <%= link_to new_user_post_path(id: @user.id), class: 'flex w-full justify-center' do %>
-  <button class="border-2 w-40 self-center cursor">Create post</button>
-  <%end%>
-  </section>  
-</div>  
+    </section>  
+  </div> 
+  
